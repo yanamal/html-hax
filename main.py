@@ -16,8 +16,14 @@
 #
 from flask import Flask
 
+from google.appengine.api import users
+
 app = Flask(__name__)
 
 @app.route('/')
-def hello():
-    return 'Hello World!'
+def login():
+  user = users.get_current_user()
+  if user:
+    return "You are logged in! " + users.create_logout_url('/')
+  else:
+    return "You are logged out! " + users.create_login_url('/')
