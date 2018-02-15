@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- The password is the pattern attribute of the text input -->
+<html>
+  <head>
+    <title>What's the pattern</title>
+  </head>
+  <body>
+    <span>Password?</span>
+    <form>
+      <input type="text" name="pass" pattern="{{ passphrase }}"/>
+      <input type="submit"/>
+    </form>
+    <p>
+      This time, the form won't accept the wrong password at all.
+      This is done through the <b>pattern</b> attribute in the text input.
+    </p>
+  </body>
+</html>

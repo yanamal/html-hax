@@ -7,6 +7,7 @@ app = Flask(__name__)
 def nextPuzzle(user):
   profile = UserProfile.get_by_user(user)
   curr = profile.current_puzzle
+  profile.solved_puzzles.append(curr)
   with app.open_resource('data/puzzleSequence.json') as f:
     puzzles = json.load(f)
     nextp = puzzles[0]
