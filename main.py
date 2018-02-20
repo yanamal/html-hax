@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 
-from flask import Flask,redirect,url_for
 from google.appengine.api import users
 from profile import UserProfile
 
+from flask import Flask,redirect
 
 app = Flask(__name__)
+
+# TODO: handle all flask things in main?..
 
 @app.route('/')
 def home():

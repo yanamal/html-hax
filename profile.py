@@ -16,6 +16,7 @@ class UserProfile(ndb.Model):
   def get_by_user(cls, user):
     profile = cls.query().filter(cls.user_id == user.user_id()).get()
     # automatically create blank profile if user doesn't already exist
+    # TODO: sometimes duplicates are created?..
     if not profile:
       with app.open_resource('data/puzzleSequence.json') as f:
         puzzles = json.load(f)

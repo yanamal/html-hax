@@ -22,3 +22,4 @@ def nextPuzzle(user):
     profile.current_puzzle = nextp # TODO: this is bad?
     profile.put()
     return nextp
+# getPuzzleURL, markComplete, getCurrentPuzzle?
