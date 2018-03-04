@@ -1,7 +1,25 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head> first project </head>
-<body>
-  Hello World
-</body>
+  <head>
+    <title>our puzzle</title>
+  <link href="displaynone.css"/>
+  </head>
+  <body>
+    <p>The password is <b>{{ passphrase }}</b>. But which button is the correct one?</p>
+    <form>
+      <input type="text" name="pass" value="{{ passphrase }}"/>
+      {% for item in range(1,5) %}
+        <button  type="button">Submit</button>
+      {% endfor %}
+      <input type="submit"/>
+      {% for item in range(1,7) %}
+        <button  type="button">Submit</button>
+      {% endfor %}
+    </form>
+    <p>
+      I've even filled in the correct password for you using the <b>value</b> attribute.
+      All you have to do is click the right Submit button - the one that's a form input instead of a button.
+      (Mouse over the right element in the Inspector to find it!)
+    </p>
+  </body>
 </html>
