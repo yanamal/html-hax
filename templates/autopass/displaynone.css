@@ -1,0 +1,6 @@
+input[type=text] {
+  display: none;
+}
+input[type=submit]{
+  display: none;
+}
