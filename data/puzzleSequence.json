@@ -1,7 +1,9 @@
 [
   "autopass/hello-world.html",
   "autopass/hello-form.html",
+  "autopass/glenaepuzzle.html",
   "autopass/inputs.html",
   "autopass/notext.html",
+  "autopass/disabled.html",
   "autopass/buttons.html"
 ]
