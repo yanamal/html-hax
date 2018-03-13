@@ -9,6 +9,9 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /resources
+  static_dir: static
+
 - url: /autopass/.*
   script: autopass.app
   login: required
@@ -16,6 +19,7 @@ handlers:
 - url: .*
   script: main.app
   login: required
+
 
 libraries:
 - name: flask
