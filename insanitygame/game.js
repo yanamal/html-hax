@@ -8,4 +8,11 @@ function updateGame() {
     $('#fivepointsbutton').css('display', 'inline');
   }
 
+  if( score <= 20  ) {
+    $('#twopointsbutton').css('display', 'inline');
+  }
+  if( score > 20  ) {
+    $('#twopointsbutton').css('display', 'none');
+  }
+
 }
