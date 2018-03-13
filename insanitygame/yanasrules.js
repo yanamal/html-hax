@@ -9,9 +9,10 @@ function addFiveToScore() {
   updateGame();
 }
 
-function divideIfEven() {
+function insanityRule() {
   if (score%2 === 0) {
     score = score / 2;
   }
+  $('#interactive').append('<button>try me!</button>');
   updateGame();
 }
