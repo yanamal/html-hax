@@ -12,6 +12,9 @@ handlers:
 - url: /resources
   static_dir: static
 
+- url: /insanity
+  static_dir: insanitygame
+
 - url: /autopass/.*
   script: autopass.app
   login: required
