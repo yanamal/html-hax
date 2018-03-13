@@ -1,4 +1,4 @@
-var score = 0;
+var score = 2;
 
 function updateGame() {
   $('#s').text(score);
@@ -6,15 +6,8 @@ function updateGame() {
   if( score >= 10 ) {
     $('#fivepointsbutton').css('display', 'inline');
   }
-
-}
-
-  // Put code for activating/deactivating your rule here:
-function insanityRule() {
-    if (score%2 === 2) {
-      score = score * 2;
-    }
-    $('#interactive').append('<button>Click me!</button>');
-    updateGame();
+  if( score >= 10 ) {
+    $('#twopointsbutton').css('display', 'inline');
+  }
 
 }
