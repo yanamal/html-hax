@@ -4,8 +4,8 @@ function incrementScore() {
   updateGame();
 }
 
-function addFiveToScore() {
-  score = score + 5;
+function addtwoToScore() {
+  score = score + 2;
   updateGame();
 }
 

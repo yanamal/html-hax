@@ -5,7 +5,7 @@ function updateGame() {
 
   // Put code for activating/deactivating your rule here:
   if( score >= 10 ) {
-    $('#fivepointsbutton').css('display', 'inline');
+    $('#two0pointsbutton').css('display', 'inline');
   }
 
 }
