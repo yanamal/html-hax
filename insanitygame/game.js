@@ -6,7 +6,7 @@ function updateGame() {
   // Put code for activating/deactivating your rule here:
 function insanityRule() {
     if (score%2 === 2) {
-      score = score x 2;
+      score = score * 2;
     }
     $('#interactive').append('<button>Click me!</button>');
     updateGame();
