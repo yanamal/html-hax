@@ -7,9 +7,6 @@ from profile import UserProfile
 import json
 import random
 
-from nextpuzzle import nextPuzzle
-
-
 app = Flask(__name__)
 
 @app.route('/autopass/<puzzle>')
@@ -22,11 +19,11 @@ def render_autopass_puzzle(puzzle):
 
   # see if they submitted the correct one:
   if submitted and (submitted == profile.current_passphrase):
-    # TODO: this logic doesn't belong here
-    np = nextPuzzle(users.get_current_user())
+    profile.solved_puzzles.append('autopass/'+puzzle)
+    profile.put()
     value = 'correct! '
-    if np:
-      value += '<a href="'+request.url_root+np+'">Next Puzzle</a>'
+    if True:
+      value += '<a href="'+request.url_root+'next">Next Puzzle</a>'
     else:
       value += 'All done!'
     return value
