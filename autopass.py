@@ -4,11 +4,10 @@ from flask import Flask,request,render_template
 
 from profile import UserProfile
 
+from nextpuzzle import progress
+
 import json
 import random
-
-from nextpuzzle import nextPuzzle
-
 
 app = Flask(__name__)
 
@@ -22,13 +21,11 @@ def render_autopass_puzzle(puzzle):
 
   # see if they submitted the correct one:
   if submitted and (submitted == profile.current_passphrase):
-    # TODO: this logic doesn't belong here
-    np = nextPuzzle(users.get_current_user())
+    profile.solved_puzzles.append('autopass/'+puzzle)
+    profile.put()
     value = 'correct! '
-    if np:
-      value += '<a href="'+request.url_root+np+'">Next Puzzle</a>'
-    else:
-      value += 'All done!'
+    #progress('autopass/'+puzzle)
+    value += progress('autopass/'+puzzle)
     return value
 
   # fallthrough logic - incorrect or no passphrase submitted:
