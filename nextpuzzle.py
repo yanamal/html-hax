@@ -1,4 +1,5 @@
 import json
+from google.appengine.api import users
 from profile import UserProfile
 from flask import Flask
 
@@ -17,3 +18,16 @@ def nextPuzzle(curr):
       nextp = puzzles[i+1]
     return nextp
 # getPuzzleURL, markComplete, getCurrentPuzzle?
+
+# progress user state to the next puzzle (assume current one has just been solved);
+# return link to next puzzle.
+def progress(curr):
+  profile = UserProfile.get_by_user(users.get_current_user())
+  nextp = nextPuzzle(curr)
+  if nextp:
+    profile.current_puzzle = nextp # this is probably fine.
+    profile.put()
+    return '<a href="/'+nextp+'">Next puzzle!</a>'
+  else:
+    # no next puzzle
+    return 'All done!'
