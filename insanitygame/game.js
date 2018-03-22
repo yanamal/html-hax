@@ -6,8 +6,9 @@ function updateGame() {
   if( score >= 10 ) {
     $('#fivepointsbutton').css('display', 'inline');
   }
+
   if( score >= 10 ) {
-    $('#twopointsbutton').css('display', 'inline');
+    $('#twopointsbutton2').css('display', 'inline');
   }
 
   if( score <= 20  ) {
