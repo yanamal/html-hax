@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<!-- The password is inside the <form> -->
+<!-- The password is: {{ passphrase }} -->
 <html>
   <head>
-    <title>Hello Forms</title>
+    <title>Hello World</title>
     <link rel="stylesheet" href="/resources/puzzlestyle.css">
+    <link rel="stylesheet" href="/resources/backgroundcolor.css">
   </head>
   <body>
     <span>Password?</span>
+  <p>the password is {{ passphrase }}</p>
     <form>
-      <!-- The password is: {{ passphrase }} -->
       <input type="text" name="pass"/>
       <input type="submit"/>
     </form>
