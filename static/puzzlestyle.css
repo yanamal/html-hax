@@ -1,0 +1,16 @@
+img {
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+}
+
+form {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #2196F3;
+  padding: 10px;
+}
+
+span {
+  font-size: large;
+}

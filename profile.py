@@ -21,6 +21,6 @@ class UserProfile(ndb.Model):
       with app.open_resource('data/puzzleSequence.json') as f:
         puzzles = json.load(f)
         profile = UserProfile(user_id = user.user_id(), user_email = user.email(),
-                              solved_puzzles=[], current_puzzle = puzzles[0] )
+                              solved_puzzles=[], current_puzzle = puzzles[0], id=user.user_id() )
         profile.put()
     return profile
