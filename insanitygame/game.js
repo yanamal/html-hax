@@ -15,6 +15,11 @@ function updateGame() {
   }
   if( score > 20  ) {
     $('#twopointsbutton').css('display', 'none');
+
+  }
+
+  if(score >=5){
+    $('#minusfive').css('display', 'inline');
   }
 
 }
