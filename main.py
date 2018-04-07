@@ -1,13 +1,19 @@
 #!/usr/bin/env python
 
+import logging, os
+
 from google.appengine.api import users
 from profile import UserProfile
 from nextpuzzle import nextPuzzle
 
-
 from flask import Flask,redirect
 
 app = Flask(__name__)
+
+production_environment = os.getenv('SERVER_SOFTWARE').startswith('Google App Engine/')
+if not production_environment:
+    app.debug = True
+    logging.info('debugging!')
 
 # TODO: handle all flask things in main?..
 
