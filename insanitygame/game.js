@@ -1,4 +1,6 @@
 var score = 2;
+var Status = false;
+var Appeared = false;
 
 function updateGame() {
   $('#s').text(score);
@@ -22,4 +24,20 @@ function updateGame() {
     $('#minusfive').css('display', 'inline');
   }
 
+  if(score >=35){
+    if (Appeared === false){
+    $('#blackbutton').css('display', 'inline');
+    setTimeout(timer, 4000)
+    Appeared = true;
+  }
+  }
+
+}
+
+function timer(){
+  if (Status === false){
+  score = score - 100;
+  $('#blackbutton').css('display', 'none');
+  updateGame()
+}
 }
