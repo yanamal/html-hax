@@ -1,1 +1,1 @@
-var Password = {{ passphrase }};
+var Password = "{{ passphrase }}";
