@@ -35,16 +35,16 @@ def nextStep():
   return redirect(profile.current_puzzle)
 
 # check the doc type quiz question
-@app.route('/doctypeanswer')
+@app.route('/youranswer')
 def checkDocType():
-  answer = request.args.get('struct') # get what was submitted in the struct field
+  answer = request.args.get('form') # get what was submitted in the struct field
   if answer == 'opt2': # compare to correct answer
     # if correct, then use the progress() function to progress from this puzzle
-    return progress('resources/doctypequiz.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+    return progress('resources/selecttheform.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
     # progress() also marks the current puzzle as solved for this user.
   else:
     # wrong answer - return a short snippet of HTML to send them back to the same quiz.
-    return 'Sorry, that\'s wrong! <a href="/resources/doctypequiz.html">Try again?</a>'
+    return 'Sorry, that\'s wrong! <a href="/resources/selecttheform.html">Try again?</a>'
 
 
 # when user navigates to an autopass puzzle, either display the puzzle,
