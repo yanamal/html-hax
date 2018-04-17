@@ -4,19 +4,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="game.js"></script>
     <script src="yanasrules.js"></script>
+    <script src="glenaerules.js"></script>
+    <script src="kennedysinsanerule.js"></script>
     <script src="dalerule.js"></script>
-
+    <script src="chaderule.js"></script>
+    <script src="vicsrules.js"></script>
     <link rel="stylesheet" href="mystyles.css">
     <title>Insanity!!</title>
   </head>
   <body>
     Score: <span id="s">0</span>
     <div id="interactive">
-      <div><img src="insanitywolf.jpeg" onmouseover="insanityRule()"></div>
+      <div><img src="CB.jpeg" onmouseover="addtwoToScore()"></div>
       <button onclick="incrementScore()">Increment!</button>
       <button onclick="addFiveToScore()" class="hidden" id="fivepointsbutton">More points!</button>
+      <button onclick="insaneRule()" class="hidden" id="twopointsbutton2">Candy here!</button>
       <button onclick="addTwo()" class="hidden" id="twopointsbutton">Add Two!</button>
-
+      <button onclick="minusfivepoints()" class="hidden" id="minusfive"> Don't Click Me!!</button>
+      <button onclick="Blackone()" class="hidden" id= "blackbutton"> Better Be Quick</button>
     </div>
   </body>
 </html>

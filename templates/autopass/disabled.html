@@ -2,14 +2,14 @@
 <html>
   <head>
     <title>I have a text field, but you can't use it!</title>
+    <link rel="stylesheet" href="/resources/puzzlestyle.css">
   </head>
   <body>
     <p>The password is <b>{{ passphrase }}</b>. </p>
-<form>
-
-     <input type="text" name="pass" disabled>
-     <br>
-    <input class="btn btn-primary" type="submit" value="Submit">
-</form>
+    <form>
+      <!-- the readonly attribute makes it so users can't change the value-->
+      <input type="text" name="pass" value="wrongpassword!" readonly/>
+      <input type="submit"/>
+    </form>
   </body>
 </html>
