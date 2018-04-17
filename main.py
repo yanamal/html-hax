@@ -11,7 +11,7 @@ from flask import Flask,redirect,request,render_template
 
 # Import our own files:
 from profile import UserProfile
-from nextpuzzle import progress
+from nextpuzzle import nextPuzzle,progress
 
 # make the flask app:
 app = Flask(__name__)
