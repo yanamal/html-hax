@@ -79,3 +79,14 @@ def render_autopass_puzzle(puzzle):
   profile.put()
 
   return render_template('autopass/'+puzzle, passphrase=passphrase)
+
+@app.route('/answer')
+def CheckForm():
+    answer = request.args.get('pass') # get what was submitted in the struct field
+    if answer == 'pass=banana': # compare to correct answer
+      # if correct, then use the progress() function to progress from this puzzle
+      return progress('resources/quizquestionissue.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+      # progress() also marks the current puzzle as solved for this user.
+    else:
+      # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+      return 'Sorry, that\'s wrong! <a href="/resources/quizquestionissue.html">Try again?</a>'
