@@ -7,8 +7,9 @@
   <body>
     <p>The password is <b>{{ passphrase }}</b>. </p>
     <form>
-     <input type="text" name="pass" value="wrongpassword!" disabled/>
-     <input type="submit"/>
+      <!-- the readonly attribute makes it so users can't change the value-->
+      <input type="text" name="pass" value="wrongpassword!" readonly/>
+      <input type="submit"/>
     </form>
   </body>
 </html>
