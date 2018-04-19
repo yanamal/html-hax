@@ -48,7 +48,7 @@ def checkDocType():
 
 # check the doc type quiz question
 @app.route('/youranswer')
-def checkDocType():
+def headertype():
   answer = request.args.get('heading') # get what was submitted in the struct field
   if answer == 'opt1': # compare to correct answer
     # if correct, then use the progress() function to progress from this puzzle
