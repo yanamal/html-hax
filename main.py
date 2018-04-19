@@ -47,6 +47,19 @@ def checkDocType():
     return 'Sorry, that\'s wrong! <a href="/resources/doctypequiz.html">Try again?</a>'
 
 
+# check the doc type quiz question
+@app.route('/quizanswer')
+def quiz():
+  answer = request.args.get('question') # get what was submitted in the struct field
+  if answer == '1': # compare to correct answer
+    # if correct, then use the progress() function to progress from this puzzle
+    return progress('resources/newquiz.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+    # progress() also marks the current puzzle as solved for this user.
+  else:
+    # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+    return 'Sorry, that\'s wrong! <a href="/resources/newquiz.html">Try again?</a>'
+
+
 # when user navigates to an autopass puzzle, either display the puzzle,
 # or (if this is a correct solution) move on to the next puzzle
 @app.route('/autopass/<puzzle>')
