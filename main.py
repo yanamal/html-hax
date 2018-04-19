@@ -36,9 +36,9 @@ def nextStep():
 
 # check the doc type quiz question
 @app.route('/youranswer')
-def checkDocType():
+def checkForm():
   answer = request.args.get('form') # get what was submitted in the struct field
-  if answer == 'opt2': # compare to correct answer
+  if answer == '<form>': # compare to correct answer
     # if correct, then use the progress() function to progress from this puzzle
     return progress('resources/selecttheform.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
     # progress() also marks the current puzzle as solved for this user.
