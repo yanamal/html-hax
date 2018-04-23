@@ -46,8 +46,18 @@ def checkDocType():
     # wrong answer - return a short snippet of HTML to send them back to the same quiz.
     return 'Sorry, that\'s wrong! <a href="/resources/doctypequiz.html">Try again?</a>'
 
-# check the doc type quiz question
-@app.route('/daletypeanswer')
+@app.route('/youranswer')
+def headertype():
+  answer = request.args.get('heading') # get what was submitted in the struct field
+  if answer == 'opt1': # compare to correct answer
+    # if correct, then use the progress() function to progress from this puzzle
+    return progress('resources/daizhaquiz.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+    # progress() also marks the current puzzle as solved for this user.
+  else:
+    # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+    return 'Sorry, that\'s wrong! <a href="/resources/daizhaquiz.html">Try again?</a>'
+
+  @app.route('/daletypeanswer')
 def daleDocType():
   answer = request.args.get('struct') # get what was submitted in the struct field
   if answer == 'opt1': # compare to correct answer
