@@ -48,7 +48,7 @@ def checkDocType():
 
 # check the doc type quiz question
 @app.route('/quizanswer')
-def checkDocType():
+def imagetag():
   answer = request.args.get('structure') # get what was submitted in the struct field
   if answer == 'opt3': # compare to correct answer
     # if correct, then use the progress() function to progress from this puzzle
