@@ -34,6 +34,20 @@ def nextStep():
   profile = UserProfile.get_by_user(users.get_current_user())
   return redirect(profile.current_puzzle)
 
+@app.route('/dummyprofile')
+def renderDummyProfile():
+  username = 'Fake User'
+  current_puzzle = 'fake/url.html'
+  total_puzzles = 8
+  completed_puzzles = ['autopass/hello-world.html','resources/doctypequiz.html']
+  num_completed = 2
+  return render_template('profile.html',
+                          user=username,
+                          curr=current_puzzle,
+                          total=total_puzzles,
+                          completed_count=num_completed,
+                          completed_urls=completed_puzzles)
+
 # check the doc type quiz question
 @app.route('/doctypeanswer')
 def checkDocType():
