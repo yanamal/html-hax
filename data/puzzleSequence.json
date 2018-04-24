@@ -6,6 +6,7 @@
   "resources/daizhaquiz.html",
   "autopass/inputs.html",
   "autopass/notext.html",
+  "resources/quizquestionissue.html"
   "autopass/disabled.html",
   "autopass/buttons.html",
   "resources/dalequiz.html",
@@ -13,5 +14,4 @@
   "autopass/wydglif.html",
   "autopass/VicsAutopass.html",
   "autopass/new-hello-world.html",
-  "resources/quizquestionissue.html"
 ]
