@@ -72,6 +72,17 @@ def checkDocType():
     return 'Sorry, that\'s wrong! <a href="/resources/doctypequiz.html">Try again?</a>'
 
 # check the doc type quiz question
+@app.route('/quizanswer')
+def imagetag():
+  answer = request.args.get('structure') # get what was submitted in the struct field
+  if answer == 'opt3': # compare to correct answer
+    # if correct, then use the progress() function to progress from this puzzle
+    return progress('resources/quizquestion.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+    # progress() also marks the current puzzle as solved for this user.
+  else:
+    # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+    return 'Sorry, that\'s wrong! <a href="/resources/quizquestion.html">Try again?</a>'
+  
 @app.route('/viccorrect')
 def checkVicCorrect():
   answer = request.args.get('choice') # get what was submitted in the struct field
