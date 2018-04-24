@@ -47,7 +47,7 @@ def checkDocType():
     return 'Sorry, that\'s wrong! <a href="/resources/doctypequiz.html">Try again?</a>'
 
 # check the doc type quiz question
-@app.route('/youranswer')
+@app.route('/kennedyanswer')
 def checkForm():
   answer = request.args.get('form') # get what was submitted in the struct field
   if answer == '<form>': # compare to correct answer
