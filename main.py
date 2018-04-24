@@ -48,6 +48,17 @@ def renderDummyProfile():
                           completed_count=num_completed,
                           completed_urls=completed_puzzles)
 
+@app.route('/dummyheadertest')
+def renderDummyPuzzle():
+  puzzlename = 'Fake Puzzle'
+  total_puzzles = 8
+  num_completed = 2
+  prev_puzzle = 'fake/url.html'
+  return render_template('autopass/hello-world-inherit.html',
+                          puzzle_name=puzzlename,
+                          completed_count=num_completed,
+                          total=total_puzzles) 
+
 # check the doc type quiz question
 @app.route('/doctypeanswer')
 def checkDocType():

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> {{ puzzle_name }}</title>
+  </head>
+  <body>
+    <span  style="background-color:powderblue">
+      {{ puzzle_name }}
+      {{ completed_count}} / {{ total }}<br/>
+      <!--profile link goes here-->
+    </span>
+      <!-- the actual puzzle will get automatically inserted below -->
+      {% block content %}{% endblock %}
+
+
+  </body>
+</html>
