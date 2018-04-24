@@ -2,14 +2,19 @@
   "autopass/hello-world.html",
   "resources/doctypequiz.html",
   "autopass/hello-form.html",
+  "resources/selecttheform.html"
   "autopass/glenaepuzzle.html",
+  "resources/daizhaquiz.html",
   "autopass/inputs.html",
   "autopass/notext.html",
+  "resources/quizquestionissue.html"
   "autopass/disabled.html",
   "autopass/buttons.html",
+  "resources/dalequiz.html",
   "autopass/color-puzzle.html",
   "autopass/wydglif.html",
   "resources/VicsQuiz.html",
   "autopass/VicsAutopass.html",
-  "autopass/new-hello-world.html"
+  "autopass/new-hello-world.html",
+  "resources/newquiz.html"
 ]
