@@ -34,6 +34,31 @@ def nextStep():
   profile = UserProfile.get_by_user(users.get_current_user())
   return redirect(profile.current_puzzle)
 
+@app.route('/dummyprofile')
+def renderDummyProfile():
+  username = 'Fake User'
+  current_puzzle = 'fake/url.html'
+  total_puzzles = 8
+  completed_puzzles = ['autopass/hello-world.html','resources/doctypequiz.html']
+  num_completed = 2
+  return render_template('profile.html',
+                          user=username,
+                          curr=current_puzzle,
+                          total=total_puzzles,
+                          completed_count=num_completed,
+                          completed_urls=completed_puzzles)
+
+@app.route('/dummyheadertest')
+def renderDummyPuzzle():
+  puzzlename = 'Fake Puzzle'
+  total_puzzles = 8
+  num_completed = 2
+  prev_puzzle = 'fake/url.html'
+  return render_template('autopass/hello-world-inherit.html',
+                          puzzle_name=puzzlename,
+                          completed_count=num_completed,
+                          total=total_puzzles) 
+
 # check the doc type quiz question
 @app.route('/doctypeanswer')
 def checkDocType():
@@ -57,6 +82,63 @@ def imagetag():
   else:
     # wrong answer - return a short snippet of HTML to send them back to the same quiz.
     return 'Sorry, that\'s wrong! <a href="/resources/quizquestion.html">Try again?</a>'
+  
+@app.route('/viccorrect')
+def checkVicCorrect():
+  answer = request.args.get('choice') # get what was submitted in the struct field
+  if answer == 'Dogs': # compare to correct answer
+    # if correct, then use the progress() function to progress from this puzzle
+    return progress('resources/VicsQuiz.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+    # progress() also marks the current puzzle as solved for this user.
+  else:
+    # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+    return 'Sorry, that\'s wrong! <a href="/resources/VicsQuiz.html">Try again?</a>'
+
+@app.route('/kennedyanswer')
+def checkForm():
+  answer = request.args.get('form') # get what was submitted in the struct field
+  if answer == '<form>': # compare to correct answer
+    # if correct, then use the progress() function to progress from this puzzle
+    return progress('resources/selecttheform.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+    # progress() also marks the current puzzle as solved for this user.
+  else:
+    # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+    return 'Sorry, that\'s wrong! <a href="/resources/selecttheform.html">Try again?</a>'
+
+@app.route('/youranswer')
+def headertype():
+  answer = request.args.get('heading') # get what was submitted in the struct field
+  if answer == 'opt1': # compare to correct answer
+    # if correct, then use the progress() function to progress from this puzzle
+    return progress('resources/daizhaquiz.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+    # progress() also marks the current puzzle as solved for this user.
+  else:
+    # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+    return 'Sorry, that\'s wrong! <a href="/resources/daizhaquiz.html">Try again?</a>'
+
+@app.route('/daletypeanswer')
+def daleDocType():
+  answer = request.args.get('struct') # get what was submitted in the struct field
+  if answer == 'opt1': # compare to correct answer
+    # if correct, then use the progress() function to progress from this puzzle
+    return progress('resources/dalequiz.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+    # progress() also marks the current puzzle as solved for this user.
+  else:
+    # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+    return 'Sorry, that\'s wrong! <a href="/resources/dalequiz.html">Try again?</a>'
+
+
+# check the doc type quiz question
+@app.route('/quizanswer')
+def quiz():
+  answer = request.args.get('question') # get what was submitted in the struct field
+  if answer == '1': # compare to correct answer
+    # if correct, then use the progress() function to progress from this puzzle
+    return progress('resources/newquiz.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+    # progress() also marks the current puzzle as solved for this user.
+  else:
+    # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+    return 'Sorry, that\'s wrong! <a href="/resources/newquiz.html">Try again?</a>'
 
 
 # when user navigates to an autopass puzzle, either display the puzzle,
@@ -91,3 +173,14 @@ def render_autopass_puzzle(puzzle):
   profile.put()
 
   return render_template('autopass/'+puzzle, passphrase=passphrase)
+
+@app.route('/answer')
+def CheckForm():
+    answer = request.args.get('pass') # get what was submitted in the struct field
+    if answer == 'pass=banana': # compare to correct answer
+      # if correct, then use the progress() function to progress from this puzzle
+      return progress('resources/quizquestionissue.html') # progress() takes in the name of the current puzzle, and returns a link to the next one
+      # progress() also marks the current puzzle as solved for this user.
+    else:
+      # wrong answer - return a short snippet of HTML to send them back to the same quiz.
+      return 'Sorry, that\'s wrong! <a href="/resources/quizquestionissue.html">Try again?</a>'

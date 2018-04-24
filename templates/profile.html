@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dummy user page</title>
+  </head>
+  <body>
+    {{ user }}<br/>
+    {{ curr }}<br/>
+    {{ completed_count}} / {{ total }}<br/>
+    <!-- this is a template loop: it will display each of the completed_urls in the same way -->
+    {% for p in completed_urls %}
+        {{ p }}<br/>
+    {% endfor %}
+  </body>
+</html>
