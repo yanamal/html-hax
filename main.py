@@ -31,7 +31,9 @@ def home():
 # figure out the next logical step for this user and redirect there.
 @app.route('/next')
 def nextStep():
-  profile = UserProfile.get_by_user(users.get_current_user())
+  print request.remote_addr
+  profile = UserProfile.get_by_user(request.remote_addr)
+  print profile
   return redirect(profile.current_puzzle)
 
 @app.route('/dummyprofile')
@@ -148,7 +150,7 @@ def render_autopass_puzzle(puzzle):
   # get passphrase that was submitted with this request, if any:
   submitted = request.args.get('pass')
   # get current user's passphrase:
-  profile = UserProfile.get_by_user(users.get_current_user())
+  profile = UserProfile.get_by_user(request.remote_addr)
   # see if they submitted the correct one:
   if submitted and (submitted == profile.current_passphrase):
     profile.solved_puzzles.append('autopass/'+puzzle)

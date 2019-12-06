@@ -1,7 +1,7 @@
 import json
 from google.appengine.api import users
 from profile import UserProfile
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -24,7 +24,7 @@ def nextPuzzle(curr):
 # progress user state to the next puzzle (assume current one has just been solved);
 # return link to next puzzle, if any.
 def progress(curr):
-  profile = UserProfile.get_by_user(users.get_current_user())
+  profile = UserProfile.get_by_user(request.remote_addr)
   nextp = nextPuzzle(curr)
   if nextp:
     profile.current_puzzle = nextp # this is probably fine.
