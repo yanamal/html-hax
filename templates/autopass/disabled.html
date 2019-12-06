@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="/resources/puzzlestyle.css">
   </head>
   <body>
-    <p>The password is <b>{{ passphrase }}</b>. </p>
+    <p>The password is <b>{{ passphrase }}</b>. <br>
+      But the input is <code>readonly</code>. How will you change the <code>value</code> of the input field?..
+    </p>
     <form>
       <!-- the readonly attribute makes it so users can't change the value-->
       <input type="text" name="pass" value="wrongpassword!" readonly/>

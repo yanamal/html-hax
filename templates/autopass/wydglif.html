@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>our puzzle</title>
+    <title>Invisible form</title>
     <link rel="stylesheet" href="/resources/puzzlestyle.css">
     <link type="text/css" rel="stylesheet" href="/resources/displaynone.css"/>
   </head>
   <body>
-    <p>The password is <b>{{ passphrase }}</b>. But it would appear that all the correct buttons are invisible...</p>
+    <p>The password is <b>{{ passphrase }}</b>. But it would appear that all the correct elements are invisible...</p>
     <form>
-      <input type="text" name="pass" value="{{ passphrase }}"/>
-      {% for item in range(1,5) %}
-        <button  type="button">Submit</button>
-      {% endfor %}
-      <input type="submit"/>
-      {% for item in range(1,7) %}
-        <button  type="button">Submit</button>
-      {% endfor %}
+      <!-- The inputs are here, but they're all invisible! 
+        that's because they are set to display: none in the css 
+        (same place where you just changed the background color) -->
+      <input type="text" name="pass" value="{{ passphrase }}"/> 
+      <input type="submit" value="Submit"/>
     </form>
     <p>
-      I've even filled in the correct password for you using the <b>value</b> attribute.
-      All you have to do is click the right Submit button - the one that's a form input instead of a button.
-      (Mouse over the right element in the Inspector to find it!)
+      What's going on inside that &lt;form&gt;?
     </p>
   </body>
 </html>
